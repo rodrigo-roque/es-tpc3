@@ -1,0 +1,20 @@
+appId: com.anonymous.myapp
+---
+- launchApp
+
+- assertVisible:
+    id: "create-session-title"
+- tapOn: "ex: Calculus Prep"
+- inputText: "Calculus Prep"
+- tapOn: "ex: 4"
+- inputText: "4"
+- tapOn:
+    id: "start-button"
+- assertVisible:
+    id: "gps-error-title"
+- assertVisible:
+    id: "gps-error-message"
+- tapOn:
+    id: "gps-error-dismiss"
+- assertVisible:
+    id: "create-session-title"
