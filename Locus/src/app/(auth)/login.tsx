@@ -21,8 +21,6 @@ export default function LoginScreen() {
   const [submitted, setSubmitted] = useState(false);
 
   function handleLogin() {
-    setSubmitted(true);
-
     if (!isValidEmail(email)) {
       setEmailError('Email inválido');
       return;
@@ -34,7 +32,7 @@ export default function LoginScreen() {
 
   function handleEmailChange(text: string) {
     setEmail(text);
-    if (submitted) {
+    if (emailError) {
       setEmailError(isValidEmail(text) ? '' : 'Email inválido');
     }
   }

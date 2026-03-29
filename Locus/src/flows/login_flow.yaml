@@ -1,0 +1,22 @@
+appId: com.anonymous.myapp
+---
+- launchApp
+
+# --- Caso 1: email inválido ---
+- tapOn: "o.teu@email.com"
+- inputText: "emailinvalido"
+- tapOn:
+    point: "50%, 68%"
+- assertVisible: "Email inválido"
+
+# --- Caso 2: login com sucesso ---
+- tapOn: "o.teu@email.com"
+- eraseText: 20
+- inputText: "teste@locus.app"
+- tapOn:
+    point: "50%, 68%"
+- assertVisible: "Sessão iniciada!"
+
+# --- Volta ao login ---
+- tapOn: "Terminar sessão"
+- assertVisible: "Entrar"
