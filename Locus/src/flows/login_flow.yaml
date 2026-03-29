@@ -2,21 +2,19 @@ appId: com.anonymous.myapp
 ---
 - launchApp
 
-# --- Caso 1: email inválido ---
-- tapOn: "o.teu@email.com"
-- inputText: "emailinvalido"
+- assertVisible:
+    id: "create-session-title"
+- tapOn: "ex: Calculus Prep"
+- inputText: "Calculus Prep"
+- tapOn: "ex: 4"
+- inputText: "4"
 - tapOn:
     point: "50%, 68%"
-- assertVisible: "Email inválido"
-
-# --- Caso 2: login com sucesso ---
-- tapOn: "o.teu@email.com"
-- eraseText: 20
-- inputText: "teste@locus.app"
+- extendedWaitUntil:
+    visible: "Location required"
+    timeout: 5000
+- assertVisible: "Location required"
 - tapOn:
-    point: "50%, 68%"
-- assertVisible: "Sessão iniciada!"
-
-# --- Volta ao login ---
-- tapOn: "Terminar sessão"
-- assertVisible: "Entrar"
+    id: "gps-error-dismiss"
+- assertVisible:
+    id: "create-session-title"
